@@ -9,10 +9,12 @@ namespace DogGo.Controllers
     public class OwnersController : Controller
     {
         private readonly IOwnerRepository _ownersRepository;
+        private readonly IDogRepository _dogRepository;
 
-        public OwnersController(IOwnerRepository ownersRepository)
+        public OwnersController(IOwnerRepository ownersRepository, IDogRepository dogRepository)
         {
             _ownersRepository = ownersRepository;
+            _dogRepository = dogRepository;
         }
 
         // GET: OwnersController
@@ -25,7 +27,10 @@ namespace DogGo.Controllers
         // GET: OwnersController/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            Owner owner = _ownersRepository.GetOwnerById(id);
+            List<Dog> ownersDogs = _dogRepository.GetDogsByOwnerId(id);
+            ViewData["dogs"] = ownersDogs;
+            return View(owner);
         }
 
         // GET: OwnersController/Create
