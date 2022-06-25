@@ -13,7 +13,7 @@
              src="https://upload.wikimedia.org/wikipedia/commons/a/a0/Font_Awesome_5_regular_user-circle.svg" />
         <div class="container">
             <div class="row">
-                <div class="col-2">
+                <div class="col-2 text-right">
                     <custom-label asp-for="Name" class="font-weight-bold"></custom-label>
                 </div>
                 <div class="col-2">
@@ -21,7 +21,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-2">
+                <div class="col-2 text-right">
                     <custom-label asp-for="Neighborhood.Name" class="font-weight-bold"></custom-label>
                 </div>
 
@@ -30,10 +30,9 @@
                 </div>
             </div>
         </div>
-</div>
-</div>
     </section>
 </div>
+
 <div>
     @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
     <a asp-action="Index">Back to List</a>
